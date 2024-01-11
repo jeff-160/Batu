@@ -7,14 +7,14 @@ class Interpreter:
         from system import System
         from syntax import Syntax
 
-        if function not in System.Keywords:
+        if function not in Syntax.Keywords:
             Utils.Error("name", f'"{function}" is not defined') 
         
-        rArgs, eArgs = args, System.Keywords[function].ArgTypes
+        rArgs, eArgs = args, Syntax.Keywords[function].ArgTypes
         if len(rArgs)!=len(eArgs):
             Utils.Error("argument", f"Expected {len(eArgs)} arguments, received {len(rArgs)}")
 
-        System.Keywords[function].Function(
+        Syntax.Keywords[function].Function(
             *[rArgs[i]
                if eArgs[i] is Syntax.NameType else 
                [eArgs[i], lambda x:x][eArgs[i] is Syntax.ValueType](Parser.Parse(rArgs[i]))

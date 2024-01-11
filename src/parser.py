@@ -13,6 +13,7 @@ class Parser:
     @staticmethod
     def ReplaceVar(expr):
         from system import System
+        from syntax import Syntax
         inString = False
 
         i = len(expr)-1
@@ -28,7 +29,7 @@ class Parser:
                     Utils.Errors.NoVar("variable", name)
 
                 value = System.Variables[name.strip()].Value 
-                value = f'"{value}"' if System.Variables[name.strip()].Type==System.Types["str"] else value
+                value = f'"{value}"' if System.Variables[name.strip()].Type==Syntax.Types["str"] else value
                 
                 expr = f"{expr[:i]}{value}{expr[index:]}"
                 i-=len(name)-len(str(value))

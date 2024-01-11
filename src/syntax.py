@@ -13,14 +13,19 @@ class Variable:
     @staticmethod
     def Declare(name, datatype):
         exec(f"""global _{name};\ndef _{name}(name, value): 
-            Utils.CheckName(name)
+            Utils.CheckName(name, "variable")
             from system import System
             try:
                 System.Variables[f"${{name}}"] = Variable({datatype}(value), "{name}")
             except:
-                Utils.Error("type", f'unable to convert "{{value}}" to type "{name}"')
+                Utils.Errors.NoConvert(value, "{name}")
             """)
         return eval(f"_{name}")
+
+class Label:
+    def __init__(self, line, isglobal=True):
+        self.LineNumber = line
+        self.Global = isglobal
 
 
 def _output(text):
@@ -38,18 +43,29 @@ def _input(var, text):
     exec(f"_{System.Variables[name].Type}('{var}', '{value}')")
 
 def _label(name):
-    Utils.CheckName(name)
+    Utils.CheckName(name, "label")
 
     from system import System
     if name in System.Labels:
         Utils.Error("name", f'label "{name}" already exists')
-    System.Labels[name] = System.LineNumber
+    System.Labels[name] = Label(System.LineNumber, System.IfEnd==None)
 
 def _goto(name):
     from system import System
     if not name in System.Labels:
         Utils.Errors.NoVar("label", name)
-    System.LineNumber = System.Labels[name]
+    System.LineNumber = System.Labels[name].LineNumber
+
+def _if(condition, span):
+    if span<=0:
+        Utils.Error("syntax", "if block span must be a positive integer")
+
+    from system import System
+    if System.LineNumber+span>len(System.CurrentCode):
+        Utils.Error("syntax", "if block extends past end of file")
+    if not condition:
+        System.LineNumber+=span
+    System.IfEnd = System.LineNumber+span+1
 
 
 class Syntax:
@@ -76,6 +92,8 @@ Syntax.Keywords = {
 
     "bus": Keyword(_label, [Syntax.NameType]),
     "yomemibus": Keyword(_goto, [Syntax.NameType]),
+
+    "kazdasdanutanee": Keyword(_if, [bool, int]),
 
     "aauuhh": Keyword(lambda i: sleep(i/1000), [int]),
     "yuboutodestroydisass": Keyword(exit, [])
