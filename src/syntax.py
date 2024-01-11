@@ -1,11 +1,22 @@
 from time import sleep
 from sys import stdout
+from random import randint, uniform
 
 from utils import *
 
 class Keyword:
     def __init__(self, function, args):
         self.Function, self.ArgTypes = function, args
+
+    @staticmethod
+    def StoreFunc(func):
+        def wrapper(*args, **kwargs):
+            from system import System
+            if f"${args[0]}" not in System.Variables:
+                Utils.Errors.NoVar("variable", args[0])
+
+            exec(f"_{System.Variables[f'${args[0]}'].Type}('{args[0]}', '{func(*args, **kwargs)}')")
+        return wrapper
 
 class Variable:
     def __init__(self, value, datatype):
@@ -32,16 +43,6 @@ class Label:
 def _output(text):
     print(text, end='')
     stdout.flush()
-
-def _input(var, text):
-    name = f"${var}"
-
-    from system import System
-    if name not in System.Variables:
-        Utils.Errors.NoVar("variable", name)
-    
-    value = input(text)
-    exec(f"_{System.Variables[name].Type}('{var}', '{value}')")
 
 def _label(name):
     Utils.CheckName(name, "label")
@@ -90,7 +91,7 @@ Syntax.Symbols = ''.join([i for i in string.punctuation if i not in [Syntax.Comm
 
 Syntax.Keywords = {
     "yuwandisnut": Keyword(_output, [str]),
-    "iwanit": Keyword(_input, [Syntax.NameType, str]),
+    "iwanit": Keyword(Keyword.StoreFunc(lambda var, text: input(text)), [Syntax.NameType, str]),
 
     **{
         i[0]: Keyword(Variable.Declare(i[0], i[1]), [Syntax.NameType, Syntax.ValueType])
@@ -103,5 +104,8 @@ Syntax.Keywords = {
     "kazdasdanutanee": Keyword(_if, [bool, int]),
 
     "aauuhh": Keyword(lambda i: sleep(i/1000), [int]),
-    "yuboutodestroydisass": Keyword(exit, [])
+    "yuboutodestroydisass": Keyword(exit, []),
+
+    "rand": Keyword(Keyword.StoreFunc(lambda var: uniform(0,1)), [Syntax.NameType]),
+    "randint": Keyword(Keyword.StoreFunc(lambda var, min, max: randint(min, max)), [Syntax.NameType, int, int])
 }

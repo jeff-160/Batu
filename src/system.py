@@ -1,7 +1,6 @@
-import math
-
 from interpreter import *
 from syntax import Syntax, Variable
+from math import pi, tau, e
 
 class System:
     LineNumber, CurrentLine, CurrentCode = 0, None, []
@@ -13,10 +12,10 @@ class System:
     BuiltIn = {
         f"%{k}": v
         for (k, v) in {
-            "pi": Variable(math.pi, "float"),
+            "pi": Variable(pi, "float"),
             "phi": Variable((1+5**0.5)/2, "float"),
-            "tau": Variable(math.tau, "float"),
-            "e": Variable(math.e, "float")
+            "tau": Variable(tau, "float"),
+            "e": Variable(e, "float")
         }.items()
     }
 
