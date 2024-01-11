@@ -38,11 +38,7 @@ class Label:
     def __init__(self, line, isglobal=True):
         self.LineNumber = line
         self.Global = isglobal
-
-
-def _output(text):
-    print(text, end='')
-    stdout.flush()
+    
 
 def _label(name):
     Utils.CheckName(name, "label")
@@ -80,17 +76,17 @@ class Syntax:
     Symbol = None
 
     Types = {
+        "bool": "ambasing",
         "int": "ambatukam",
-        "float": "ambatunut",
-        "str": "ambadeblou",
-        "bool": "ambasing"
+        "float": "ambatublou",
+        "str": "ambatuexplode",
     }
     Keywords = {}
 
 Syntax.Symbols = ''.join([i for i in string.punctuation if i not in [Syntax.Comment, Syntax.Variable, Syntax.BuiltIn]])
 
 Syntax.Keywords = {
-    "yuwandisnut": Keyword(_output, [str]),
+    "yuwandisnut": Keyword(lambda text: print(text, end='') and stdout.flush(), [str]),
     "iwanit": Keyword(Keyword.StoreFunc(lambda var, text: input(text)), [Syntax.NameType, str]),
 
     **{
@@ -98,7 +94,7 @@ Syntax.Keywords = {
             for i in [(Syntax.Types[k], k) for k in Syntax.Types]
     },
 
-    "bus": Keyword(_label, [Syntax.NameType]),
+    "ambatubus": Keyword(_label, [Syntax.NameType]),
     "yomemibus": Keyword(_goto, [Syntax.NameType]),
 
     "kazdasdanutanee": Keyword(_if, [bool, int]),
@@ -106,6 +102,6 @@ Syntax.Keywords = {
     "aauuhh": Keyword(lambda i: sleep(i/1000), [int]),
     "yuboutodestroydisass": Keyword(exit, []),
 
-    "rand": Keyword(Keyword.StoreFunc(lambda var: uniform(0,1)), [Syntax.NameType]),
-    "randint": Keyword(Keyword.StoreFunc(lambda var, min, max: randint(min, max)), [Syntax.NameType, int, int])
+    "ambatunat": Keyword(Keyword.StoreFunc(lambda var: uniform(0,1)), [Syntax.NameType]),
+    "ambatufakinat": Keyword(Keyword.StoreFunc(lambda var, min, max: randint(min, max)), [Syntax.NameType, int, int])
 }
