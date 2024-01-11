@@ -86,7 +86,7 @@ class Syntax:
 Syntax.Symbols = ''.join([i for i in string.punctuation if i not in [Syntax.Comment, Syntax.Variable, Syntax.BuiltIn]])
 
 Syntax.Keywords = {
-    "yuwandisnut": Keyword(lambda text: print(text, end='') and stdout.flush(), [str]),
+    "yuwandisnut": Keyword(lambda text: print(text, end='') or stdout.flush(), [str]),
     "iwanit": Keyword(Keyword.StoreFunc(lambda var, text: input(text)), [Syntax.NameType, str]),
 
     **{
