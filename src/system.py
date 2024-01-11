@@ -1,5 +1,7 @@
+import math
+
 from interpreter import *
-from syntax import Syntax
+from syntax import Syntax, Variable
 
 class System:
     LineNumber, CurrentLine, CurrentCode = 0, None, []
@@ -7,6 +9,16 @@ class System:
 
     Variables = {}
     Labels = {}
+
+    BuiltIn = {
+        f"%{k}": v
+        for (k, v) in {
+            "pi": Variable(math.pi, "float"),
+            "phi": Variable((1+5**0.5)/2, "float"),
+            "tau": Variable(math.tau, "float"),
+            "e": Variable(math.e, "float")
+        }.items()
+    }
 
     @staticmethod
     def Run(code):

@@ -1,5 +1,6 @@
 from time import sleep
 from sys import stdout
+
 from utils import *
 
 class Keyword:
@@ -73,6 +74,10 @@ class Syntax:
     ValueType = []
 
     Comment = "#"
+    Variable = "$"
+    BuiltIn = "%"
+    Symbol = None
+
     Types = {
         "int": "ambatukam",
         "float": "ambatunut",
@@ -80,6 +85,8 @@ class Syntax:
         "bool": "ambasing"
     }
     Keywords = {}
+
+Syntax.Symbols = ''.join([i for i in string.punctuation if i not in [Syntax.Comment, Syntax.Variable, Syntax.BuiltIn]])
 
 Syntax.Keywords = {
     "yuwandisnut": Keyword(_output, [str]),

@@ -4,7 +4,6 @@ class Interpreter:
     @staticmethod
     def Interprete(line):
         function, args = Lexer.Lex(line.strip())
-        from system import System
         from syntax import Syntax
 
         if function not in Syntax.Keywords:

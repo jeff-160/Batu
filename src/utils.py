@@ -1,8 +1,6 @@
 import re, string
 
 class Utils:
-    Symbols = ''.join([i for i in string.punctuation if i not in "$_"])
-
     @staticmethod
     def CheckName(name, vartype):
         if not name[0].isalpha():
