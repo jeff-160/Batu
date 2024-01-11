@@ -13,9 +13,15 @@ class Interpreter:
         if len(rArgs)!=len(eArgs):
             Utils.Error("argument", f"Expected {len(eArgs)} arguments, received {len(rArgs)}")
 
-        Syntax.Keywords[function].Function(
-            *[rArgs[i]
-               if eArgs[i] is Syntax.NameType else 
-               [eArgs[i], lambda x:x][eArgs[i] is Syntax.ValueType](Parser.Parse(rArgs[i]))
-               for i in range(len(eArgs))]
-        )
+        fArgs = []
+        for i in range(len(eArgs)):
+            if eArgs[i] is Syntax.NameType:
+                fArgs.append(rArgs[i])
+            else:
+                cast = [eArgs[i], lambda x:x][eArgs[i] is Syntax.ValueType]
+                try:
+                    fArgs.append(cast(Parser.Parse(rArgs[i])))
+                except:
+                    Utils.Errors.NoConvert(rArgs[i], Syntax.Types[cast.__name__] if cast.__name__ in Syntax.Types else "")
+
+        Syntax.Keywords[function].Function(*fArgs)

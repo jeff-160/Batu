@@ -56,7 +56,7 @@ def _goto(name):
 
 def _if(condition, span):
     if span<=0:
-        Utils.Error("syntax", "if block span must be a positive integer")
+        Utils.Error("value", "if block span must be a positive integer")
 
     from system import System
     if System.LineNumber+span>len(System.CurrentCode):
@@ -65,6 +65,13 @@ def _if(condition, span):
         System.LineNumber+=span
     System.IfEnd = System.LineNumber+span+1
 
+@Keyword.StoreFunc
+def _randint(var, min, max):
+    try:
+        return randint(min, max)
+    except ValueError:
+        Utils.Error("value", f'invalid range "{min}-{max}"')
+        
 
 class Syntax:
     NameType = []
@@ -103,5 +110,5 @@ Syntax.Keywords = {
     "yuboutodestroydisass": Keyword(exit, []),
 
     "ambatunat": Keyword(Keyword.StoreFunc(lambda var: uniform(0,1)), [Syntax.NameType]),
-    "ambatufakinat": Keyword(Keyword.StoreFunc(lambda var, min, max: randint(min, max)), [Syntax.NameType, int, int])
+    "ambatufakinat": Keyword(_randint, [Syntax.NameType, int, int])
 }
