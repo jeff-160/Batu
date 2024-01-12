@@ -2,6 +2,7 @@ from time import sleep
 from sys import stdout
 from random import randint, uniform
 
+from graphics import *
 from utils import *
 
 class Keyword:
@@ -110,5 +111,10 @@ Syntax.Keywords = {
     "yuboutodestroydisass": Keyword(exit, []),
 
     "ambatunat": Keyword(Keyword.StoreFunc(lambda var: uniform(0,1)), [Syntax.NameType]),
-    "ambatufakinat": Keyword(_randint, [Syntax.NameType, int, int])
+    "ambatufakinat": Keyword(_randint, [Syntax.NameType, int, int]),
+
+    "omaygot": Keyword(Graphics.Init, [str, int, int]),
+    "dontkam": Keyword(Graphics.Update, []),
+    "stretchdisass": Keyword(Graphics.Rect, [int, int, int, int]),
+    "imgettingmyvegetablestoday": Keyword(lambda: 0, []) #images
 }

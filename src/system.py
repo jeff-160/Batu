@@ -8,6 +8,10 @@ class System:
 
     Variables = {}
     Labels = {}
+    
+    class Graphics:
+        Root = None
+        Canvas = None
 
     BuiltIn = {
         f"%{k}": v
