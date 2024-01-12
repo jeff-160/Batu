@@ -19,5 +19,9 @@ int main(int argc, char* argv[]){
     if (!std::filesystem::exists(path))
         return Error("File does not exist");
 
+    std::string ext = ".batu";
+    if (path.find(ext)!=path.length()-ext.length())
+        return Error("File format not supported");
+
     system(("python src\\main.py "+path).c_str());
 }
