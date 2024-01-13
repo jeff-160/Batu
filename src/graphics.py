@@ -2,17 +2,38 @@ import tkinter as tk
 from utils import *
 
 class Graphics:
-    @staticmethod
-    def GetHex(r, g, b):
-        return f"#{r:02X}{g:02X}{b:02X}"
+    Colors = {
+        **{
+            k: f"#{v[0]:02X}{v[1]:02X}{v[2]:02X}"
+            for k,v in{
+                "red": (255,0,0),
+                "orange": (252,102,14),
+                "yellow": (255,255,0),
+                "green": (0,255,0),
+                "blue": (0,0,255),
+                "purple": (128,0,128),
+                "pink": (255,192,203),
+                "black": (0,0,0),
+                "white": (255,255,255),
+            }.items()
+        }
+    }
     
     @staticmethod
-    def Check(func):
-        def wrapper(*args, **kwargs):
+    def InitCheck(func):
+        def wrapper(*args):
             from system import System
             if not System.Graphics.Root:
                 Utils.Error("graphics", "canvas not initialised")
-            func(*args, **kwargs)
+            func(*args)
+        return wrapper
+    
+    @staticmethod
+    def ColorCheck(func):
+        def wrapper(*args):
+            if not args[0].lower() in Graphics.Colors:
+                Utils.Error("graphics", f'color "{args[0]}" not recognised')
+            func(*args)
         return wrapper
 
     @staticmethod
@@ -26,30 +47,33 @@ class Graphics:
         Root.resizable(0,0)
         Root.protocol("WM_DELETE_WINDOW", Graphics.Destroy)
 
-        Canvas = tk.Canvas(Root, width=width, height=height, bg=Graphics.GetHex(0,0,0), borderwidth=0, highlightthickness=0)
+        Canvas = tk.Canvas(Root, width=width, height=height, bg=Graphics.Colors["black"], borderwidth=0, highlightthickness=0)
         Canvas.pack()
 
         System.Graphics.Root, System.Graphics.Canvas = Root, Canvas
 
     @staticmethod
-    @Check
+    @InitCheck
     def Destroy():
         from system import System
         System.Graphics.Root.destroy()
         System.Graphics.Root = System.Graphics.Canvas = None
 
     @staticmethod
-    @Check
-    def Rect(x, y, w, h):
+    @InitCheck
+    @ColorCheck
+    def Rect(c, x, y, w, h):
         from system import System
-        System.Graphics.Canvas.create_rectangle(x, y, x+w, y+h, fill=Graphics.GetHex(255,0,0),outline="")
+        System.Graphics.Canvas.create_rectangle(x, y, x+w, y+h, fill=Graphics.Colors[c], outline="")
 
     @staticmethod
-    @Check
-    def Circle(x, y, r):
-        pass
+    @InitCheck
+    @ColorCheck
+    def Circle(c, x, y, r):
+        from system import System
+        System.Graphics.Canvas.create_oval(x, y, x+r*2, y+r*2, fill=Graphics.Colors[c], outline="")
 
     @staticmethod
-    @Check
+    @InitCheck
     def Sprite():
         pass

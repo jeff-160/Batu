@@ -11,12 +11,12 @@ class Keyword:
 
     @staticmethod
     def StoreFunc(func):
-        def wrapper(*args, **kwargs):
+        def wrapper(*args):
             from system import System
             if f"${args[0]}" not in System.Variables:
                 Utils.Errors.NoVar("variable", args[0])
 
-            exec(f"_{System.Variables[f'${args[0]}'].Type}('{args[0]}', '{func(*args, **kwargs)}')")
+            exec(f"_{System.Variables[f'${args[0]}'].Type}('{args[0]}', '{func(*args)}')")
         return wrapper
 
 class Variable:
@@ -114,9 +114,10 @@ Syntax.Keywords = {
     "ambatufakinat": Keyword(_randint, [Syntax.NameType, int, int]),
 
     "omaygot": Keyword(Graphics.Init, [str, int, int]),
-    "dontkam": Keyword(Graphics.Check(lambda: exec("from system import System; System.Graphics.Root.update()"))),
-    "washthatass": Keyword(Graphics.Check(lambda: exec('from system import System; System.Graphics.Canvas.delete("all")'))),
+    "dontkam": Keyword(Graphics.InitCheck(lambda: exec("from system import System; System.Graphics.Root.update()"))),
+    "washthatass": Keyword(Graphics.InitCheck(lambda: exec('from system import System; System.Graphics.Canvas.delete("all")'))),
     "yuboutodestroydisass": Keyword(Graphics.Destroy),
-    "rect": Keyword(Graphics.Rect, [int, int, int, int]),
+    "haurder": Keyword(Graphics.Rect, [str, float, float, float, float]),
+    "circle": Keyword(Graphics.Circle, [str, float, float, float]),
     "imgettingmyvegetablestoday": None
 }
