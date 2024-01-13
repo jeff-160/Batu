@@ -1,0 +1,40 @@
+from syntax import Syntax, Variable
+from math import pi, tau, e
+from os import path
+
+from interpreter import *
+
+class System:
+    class Directory:
+        Interpreter = path.dirname(path.dirname(path.abspath(__file__)))
+        Code = None
+
+    LineNumber, CurrentLine, CurrentCode = 0, None, []
+    IfEnd = None
+
+    Variables = {}
+    Labels = {}
+    
+    class GUI:
+        Root = None
+        Canvas = None
+
+    BuiltIn = {
+        "pi": Variable(pi, "float"),
+        "phi": Variable((1+5**0.5)/2, "float"),
+        "tau": Variable(tau, "float"),
+        "e": Variable(e, "float")
+    }
+
+    @staticmethod
+    def Run(code):
+        System.CurrentCode = code
+        while System.LineNumber<len(System.CurrentCode):
+            System.CurrentLine = System.CurrentCode[System.LineNumber]
+            System.LineNumber+=1
+            if System.IfEnd!=None and System.LineNumber==System.IfEnd:
+                System.Labels = {k:System.Labels[k] for k in System.Labels if System.Labels[k].Global}
+                System.IfEnd = None
+            if not len(System.CurrentLine.strip()) or System.CurrentLine.strip()[0]==Syntax.Comment: 
+                continue
+            Interpreter.Interprete(System.CurrentLine)

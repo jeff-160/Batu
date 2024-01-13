@@ -23,5 +23,5 @@ int main(int argc, char* argv[]){
     if (path.find(ext)!=path.length()-ext.length())
         return Error("File format not supported");
 
-    system(("python src\\main.py "+path).c_str());
+    system(("python "+std::filesystem::path(argv[0]).parent_path().string()+"\\src\\main.py "+path).c_str());
 }
