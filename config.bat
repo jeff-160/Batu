@@ -2,10 +2,13 @@
 
 cd /d %~dp0
 
->nul 2>&1 net session
+>nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
 if %errorlevel% neq 0 (
-    powershell -command Write-Host This script requires administrator privileges -ForegroundColor Red
-    goto :end
+    echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\temp.vbs"
+    echo UAC.ShellExecute "%~s0", "", "", "runas", 1 >> "%temp%\temp.vbs"
+    "%temp%\temp.vbs"
+    del "%temp%\temp.vbs"
+    exit /b
 )
 
 powershell -command Write-Host Adding path to system environment variables -ForeGroundColor Yellow
