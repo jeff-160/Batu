@@ -24,7 +24,7 @@ class Graphics:
         Root = tk.Tk()
         Root.wm_title(title)
         Root.resizable(0,0)
-        Root.protocol("WM_DELETE_WINDOW", lambda: System.Graphics.Root.destroy() or exec("System.Graphics.Root = System.Graphics.Canvas = None"))
+        Root.protocol("WM_DELETE_WINDOW", Graphics.Destroy)
 
         Canvas = tk.Canvas(Root, width=width, height=height, bg=Graphics.GetHex(0,0,0), borderwidth=0, highlightthickness=0)
         Canvas.pack()
@@ -33,11 +33,23 @@ class Graphics:
 
     @staticmethod
     @Check
-    def Update():
+    def Destroy():
         from system import System
-        System.Graphics.Root.update()
+        System.Graphics.Root.destroy()
+        System.Graphics.Root = System.Graphics.Canvas = None
 
     @staticmethod
+    @Check
     def Rect(x, y, w, h):
         from system import System
         System.Graphics.Canvas.create_rectangle(x, y, x+w, y+h, fill=Graphics.GetHex(255,0,0),outline="")
+
+    @staticmethod
+    @Check
+    def Circle(x, y, r):
+        pass
+
+    @staticmethod
+    @Check
+    def Sprite():
+        pass

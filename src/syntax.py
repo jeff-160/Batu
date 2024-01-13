@@ -6,7 +6,7 @@ from graphics import *
 from utils import *
 
 class Keyword:
-    def __init__(self, function, args):
+    def __init__(self, function, args=[]):
         self.Function, self.ArgTypes = function, args
 
     @staticmethod
@@ -108,13 +108,15 @@ Syntax.Keywords = {
     "kazdasdanutanee": Keyword(_if, [bool, int]),
 
     "aauuhh": Keyword(lambda i: sleep(i/1000), [int]),
-    "yuboutodestroydisass": Keyword(exit, []),
+    "ewww": Keyword(exit),
 
     "ambatunat": Keyword(Keyword.StoreFunc(lambda var: uniform(0,1)), [Syntax.NameType]),
     "ambatufakinat": Keyword(_randint, [Syntax.NameType, int, int]),
 
     "omaygot": Keyword(Graphics.Init, [str, int, int]),
-    "dontkam": Keyword(Graphics.Update, []),
-    "stretchdisass": Keyword(Graphics.Rect, [int, int, int, int]),
-    "imgettingmyvegetablestoday": Keyword(lambda: 0, []) #images
+    "dontkam": Keyword(Graphics.Check(lambda: exec("from system import System; System.Graphics.Root.update()"))),
+    "washthatass": Keyword(Graphics.Check(lambda: exec('from system import System; System.Graphics.Canvas.delete("all")'))),
+    "yuboutodestroydisass": Keyword(Graphics.Destroy),
+    "rect": Keyword(Graphics.Rect, [int, int, int, int]),
+    "imgettingmyvegetablestoday": None
 }
