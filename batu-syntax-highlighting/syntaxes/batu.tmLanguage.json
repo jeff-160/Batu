@@ -1,15 +1,15 @@
 {
-	"scopeName": "source.batu",
-	"name": "Batu",
-	"patterns": [
-		{
-			"name": "comment.batu",
-			"match": "#.*$"
-		},
-		{
-			"name": "keyword.operator.batu",
-			"match": "\\b(not|or)\\b"
-		},
+    "scopeName": "source.batu",
+    "name": "Batu",
+    "patterns": [
+        {
+            "name": "comment.batu",
+            "match": "#.*$"
+        },
+        {
+            "name": "keyword.operator.batu",
+            "match": "\\b(not|or)\\b"
+        },
 		{
 			"patterns": [
 				{
