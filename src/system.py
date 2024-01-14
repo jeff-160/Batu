@@ -1,5 +1,5 @@
 from syntax import Syntax, Variable
-from math import pi, tau, e
+from math import pi, e
 from os import path
 
 from interpreter import *
@@ -19,10 +19,9 @@ class System:
         Canvas = None
 
     BuiltIn = {
-        "pi": Variable(pi, "float"),
-        "phi": Variable((1+5**0.5)/2, "float"),
-        "tau": Variable(tau, "float"),
-        "e": Variable(e, "float")
+        "ambatugogetmesomesupper": Variable(pi, "float"),
+        "itssofuckinghuge": Variable((1+5**0.5)/2, "float"),
+        "ugheeeee": Variable(e, "float")
     }
 
     @staticmethod

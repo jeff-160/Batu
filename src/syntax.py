@@ -1,6 +1,7 @@
 from time import sleep
 from sys import stdout
 from random import randint, uniform
+from math import cos, sin, tan
 
 from gui import *
 from utils import *
@@ -113,6 +114,9 @@ Syntax.Keywords = {
 
     "ambatunat": Keyword(Keyword.StoreFunc(lambda var: uniform(0,1)), [Syntax.NameType]),
     "ambatufakinat": Keyword(_randint, [Syntax.NameType, int, int]),
+    "yesthankyousomuch": Keyword(Keyword.StoreFunc(lambda var, val: sin(val)), [Syntax.NameType, float]),
+    "thankyou": Keyword(Keyword.StoreFunc(lambda var, val: cos(val)), [Syntax.NameType, float]),
+    "thatmaybejustwhatineedtobus": Keyword(Keyword.StoreFunc(lambda var, val: tan(val)), [Syntax.NameType, float]),
 
     "omaygot": Keyword(GUI.Init, [str, int, int]),
     "dontkam": Keyword(GUI.InitCheck(lambda: exec("from system import System; System.GUI.Root.update()"))),
