@@ -59,6 +59,5 @@ if exist "%dest%" (
 )
 
 
-:end
 echo.
 pause
