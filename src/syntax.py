@@ -63,6 +63,9 @@ def _if(condition, span):
     from system import System
     if System.LineNumber+span>len(System.CurrentCode):
         Utils.Error("syntax", "condtional block extends past end of file")
+    if System.IfEnd!=None and System.LineNumber+span+1>System.IfEnd:
+        Utils.Error("syntax", "nested condtional block extends past outer conditional block")
+
     if not condition:
         System.LineNumber+=span
     System.IfEnd = System.LineNumber+span+1
