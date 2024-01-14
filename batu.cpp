@@ -1,6 +1,8 @@
 #include <cstdlib>
 #include <string>
+#include <windows.h>
 #include <filesystem>
+#include <iostream>
 
 int Error(char* message){
     system(
@@ -23,5 +25,8 @@ int main(int argc, char* argv[]){
     if (path.find(ext)!=path.length()-ext.length())
         return Error("File format not supported");
 
-    system(("python "+std::filesystem::path(argv[0]).parent_path().string()+"\\src\\main.py "+path).c_str());
+    char buffer[MAX_PATH];
+    GetModuleFileName(NULL, buffer, MAX_PATH);
+    
+    system(("python "+std::filesystem::path(buffer).parent_path().string()+"\\src\\main.py "+path).c_str());
 }
