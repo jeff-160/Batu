@@ -109,7 +109,7 @@ Syntax.Keywords = {
     "kazdasdanutanee": Keyword(_if, [bool, int]),
 
     "aauuhh": Keyword(lambda i: sleep(i/1000), [int]),
-    "ewww": Keyword(exit),
+    "ewww": Keyword(sys.exit),
 
     "ambatunat": Keyword(Keyword.StoreFunc(lambda var: uniform(0,1)), [Syntax.NameType]),
     "ambatufakinat": Keyword(_randint, [Syntax.NameType, int, int]),

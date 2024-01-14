@@ -1,4 +1,4 @@
-import re
+import re, sys
 
 class Utils:
     @staticmethod
@@ -23,13 +23,13 @@ class Utils:
     def Error(errtype, msg):
         from system import System
         if System.LineNumber==float("inf"):
-            exit()
+            sys.exit()
 
         fn = lambda t: t[0].upper()+t[1:]
 
         print(f"\n{fn(errtype)}Error: {fn(msg)}\n\tat line {System.LineNumber}: {System.CurrentLine.strip()}")
         System.LineNumber = float("inf")
-        exit()
+        sys.exit()
             
     class Errors:
         NoVar = lambda vartype, name: Utils.Error("reference", f'{vartype} "{name}" is not defined')

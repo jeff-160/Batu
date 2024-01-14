@@ -6,8 +6,7 @@ from interpreter import *
 
 class System:
     class Directory:
-        Interpreter = path.dirname(path.dirname(path.abspath(__file__)))
-        Code = None
+        Interpreter = Code = None
 
     LineNumber, CurrentLine, CurrentCode = 0, None, []
     IfEnd = None
