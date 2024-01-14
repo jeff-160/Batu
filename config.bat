@@ -20,6 +20,7 @@ set "batu=%NEWUSER%\Batu"
 xcopy %cd% "%batu%" /E /I /Y > nul
 cd /d "%batu%"
 
+
 call :print "Associating language icon" Yellow
 set "ext=.batu"
 set "icon=%cd%\resources\batu.ico"
