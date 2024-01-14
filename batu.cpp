@@ -26,5 +26,5 @@ int main(int argc, char* argv[]){
 
     char buffer[MAX_PATH];
     GetModuleFileName(NULL, buffer, MAX_PATH);
-    system(("python "+std::filesystem::path(buffer).parent_path().string()+"\\src\\main.py "+path).c_str());
+    system((std::filesystem::path(buffer).parent_path().string()+"\\src\\main.exe "+path).c_str());
 }
