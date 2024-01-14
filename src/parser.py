@@ -11,10 +11,6 @@ class Parser:
             Utils.Error("syntax", f'invalid expression "{expr}"')
 
     @staticmethod
-    def ReplaceKeywords(expr):
-        pass
-
-    @staticmethod
     def ReplaceVar(expr):
         from syntax import Syntax
         inString = False
