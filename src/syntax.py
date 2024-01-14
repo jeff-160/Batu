@@ -58,11 +58,11 @@ def _goto(name):
 
 def _if(condition, span):
     if span<=0:
-        Utils.Error("value", "if block span must be a positive integer")
+        Utils.Error("value", "condtional block span must be a positive integer")
 
     from system import System
     if System.LineNumber+span>len(System.CurrentCode):
-        Utils.Error("syntax", "if block extends past end of file")
+        Utils.Error("syntax", "condtional block extends past end of file")
     if not condition:
         System.LineNumber+=span
     System.IfEnd = System.LineNumber+span+1
