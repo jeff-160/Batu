@@ -1,0 +1,25 @@
+{
+  "name": "batu",
+  "displayName": "Batu",
+  "description": "Syntax highlighting for Batu",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "batu",
+      "aliases": ["Batu", "batu"],
+      "extensions": [".batu"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "batu",
+      "scopeName": "source.batu",
+      "path": "./syntaxes/batu.tmLanguage.json"
+    }]
+  }
+}
