@@ -39,7 +39,7 @@ class Parser:
                     from system import System
                     col = [System.BuiltIn, System.Variables][expr[i]==Syntax.Variable]
                     if name not in col:
-                        Utils.Errors.NoVar(["built-in constant", "variable"][expr[i]==Syntax.Variable], name[1:])
+                        Utils.Errors.NoVar(["built-in constant", "variable"][expr[i]==Syntax.Variable], name)
                     value = col[name].Value
                     value = f'"{value}"' if col[name].Type==Syntax.Types["str"] else value
                 
