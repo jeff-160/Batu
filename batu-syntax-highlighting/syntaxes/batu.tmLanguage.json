@@ -10,71 +10,71 @@
             "name": "keyword.operator.batu",
             "match": "\\b(not|or)\\b"
         },
-		{
-			"patterns": [
-				{
-				  "name": "constant.numeric",
-				  "match": "\\b\\d+\\b"
-				}
-			  ]
-		},
-		{
-			"patterns":[
-				{
-					"name": "constant.language",
-					"match": "\\b(True|False)\\b"
-				}
-			]
-		},
-		{
-			"name": "string.double",
-			"begin": "\"",
-			"end": "\"",
-			"patterns": [
-				{
-					"name": "constant.character.escape.batu",
-					"match": "\\\\."
-				}
-			]
-		},
-		{
-			"name": "string.single",
-			"begin": "'",
-			"end": "'",
-			"patterns": [
-				{
-					"name": "constant.character.escape.batu",
-					"match": "\\\\."
-				}
-			]
-		},
-		{
-			"patterns": [
-			  {
-				"name": "storage.type",
-				"match": "\\b(ambasing|ambatukam|ambatublou|ambatuexplode)\\b"
-			  }
-			]
-		},
-		{
-			"patterns": [
-				{
-				  "name": "variable.other",
-				  "match": "(\\$|%|&)[a-zA-Z_]\\w*"
-				}
-			]
-		},
-		{
-			"name": "keyword.control.batu",
-			"match": "\\b(kazdasdanutanee|ambatubus|yomemibus)\\b"
-		},
-		{
-			"patterns": [
-				{
-					"name": "support.function",
-					"match": "\\b(yuwandisnut|iwanit|aauuhh|ewww|ambatunat|ambatufakinat|omaygot|dontkam|washthatass|stretchdisass|yuboutodestroydisass|haurder|bus|steven|vukvukvukvukvukvuk)\\b"
-				}
-			]
-		}
-	]
+        {
+            "patterns": [
+                {
+                    "name": "constant.numeric",
+                    "match": "\\b\\d+\\b"
+                }
+            ]
+        },
+        {
+            "patterns":[
+                {
+                    "name": "constant.language",
+                    "match": "\\b(True|False)\\b"
+                }
+            ]
+        },
+        {
+            "name": "string.double",
+            "begin": "\"",
+            "end": "\"",
+            "patterns": [
+                {
+                    "name": "constant.character.escape.batu",
+                    "match": "\\\\."
+                }
+            ]
+        },
+        {
+            "name": "string.single",
+            "begin": "'",
+            "end": "'",
+            "patterns": [
+                {
+                    "name": "constant.character.escape.batu",
+                    "match": "\\\\."
+                }
+            ]
+        },
+        {
+            "patterns": [
+                {
+                    "name": "storage.type",
+                    "match": "\\b(ambasing|ambatukam|ambatublou|ambatuexplode)\\b"
+                }
+            ]
+        },
+        {
+            "patterns": [
+                {
+                    "name": "variable.other",
+                    "match": "(\\$|%|&)[a-zA-Z_]\\w*"
+                }
+            ]
+        },
+        {
+            "name": "keyword.control.batu",
+            "match": "\\b(kazdasdanutanee|ambatubus|yomemibus)\\b"
+        },
+        {
+            "patterns": [
+                {
+                    "name": "support.function",
+                    "match": "\\b(yuwandisnut|iwanit|aauuhh|ewww|ambatunat|ambatufakinat|omaygot|dontkam|washthatass|stretchdisass|yuboutodestroydisass|haurder|bus|steven|vukvukvukvukvukvuk)\\b"
+                }
+            ]
+        }
+    ]
 }
