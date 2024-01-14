@@ -15,7 +15,7 @@ int Error(char* message){
 int main(int argc, char* argv[]){
     if (argc!=2)
         return Error("Invalid number of arguments");
-    
+        
     auto path = std::string(argv[1]);
     if (!std::filesystem::exists(path))
         return Error("File does not exist");
