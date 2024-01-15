@@ -46,8 +46,6 @@ def _label(name):
     Utils.CheckName(name, "label")
 
     from system import System
-    if name in System.Labels:
-        Utils.Error("name", f'label "{name}" already exists')
     System.Labels[name] = Label(System.LineNumber, System.IfEnd==None)
 
 def _goto(name):
