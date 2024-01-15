@@ -7,8 +7,8 @@
             "match": "#.*$"
         },
         {
-            "name": "keyword.operator.batu",
-            "match": "\\b(not|or)\\b"
+            "name": "keyword.other.batu",
+            "match": "\\b(not|or|is|and)\\b"
         },
         {
             "patterns": [
