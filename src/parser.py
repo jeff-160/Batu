@@ -17,7 +17,7 @@ class Parser:
 
         i = len(expr)-1
         while i>=0:
-            if expr[i] in "\"'":
+            if expr[i] in Syntax.Quotes:
                 inString = not inString
 
             if expr[i] in [Syntax.Variable, Syntax.BuiltIn, Syntax.GUI] and not inString:
@@ -37,9 +37,10 @@ class Parser:
                     if name not in col:
                         Utils.Errors.NoVar(["built-in constant", "variable"][expr[i]==Syntax.Variable], name)
                     value = col[name].Value
-                    value = f'"{value}"' if col[name].Type==Syntax.Types["str"] else value
+                    extra = int(str(value)[0] in Syntax.Quotes)
+                    value, inString = [f'"""{value}"""', True] if col[name].Type==Syntax.Types["str"] else [value, inString]
                 
                 expr = f"{expr[:i]}{value}{expr[index:]}"
-                i-=len(name)-len(str(value))
+                i-=len(name)-len(str(value))-extra
             i-=1
         return expr

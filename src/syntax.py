@@ -80,6 +80,7 @@ class Syntax:
     NameType = []
     ValueType = []
 
+    Quotes = "\"'"
     Comment = "#"
     Variable = "$"
     BuiltIn = "%"

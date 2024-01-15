@@ -12,9 +12,11 @@ class Utils:
 
     @staticmethod
     def FindChar(line, char):
+        from syntax import Syntax
+        
         inString = False
         for i in range(len(line)):
-            if line[i] in "\"'": 
+            if line[i] in Syntax.Quotes: 
                 inString = not inString
             if re.findall(char, line[i]) and not inString:
                 return i
