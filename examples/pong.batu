@@ -22,21 +22,18 @@ omaygot "Pong", $WindowWidth, $WindowWidth
 ambatubus gameloop
     washthatass
 
-    kazdasdanutanee $BX+$BallRadius<=0, 7
+    ambatukam deg,0 
+    ambatufakinat deg, -45, 45
+    kazdasdanutanee $BX+$BallRadius<=0, 5
         ambatukam S2, $S2+1
         ambatublou BX, $WindowWidth-$PaddleWidth-$BallRadius
         ambatublou BY, $Y2+$PaddleHeight/2
-        ambatukam deg,0 
-        ambatufakinat deg, -45, 45
         ambatublou BA, $deg*%ambatugogetmesomesupper/180
         yomemibus gameloop
-    
-    kazdasdanutanee $BX-$BallRadius>=$WindowWidth, 7
+    kazdasdanutanee $BX-$BallRadius>=$WindowWidth, 5
         ambatukam S1, $S1+1
         ambatublou BX, $PaddleWidth+$BallRadius
         ambatublou BY, $Y1+$PaddleHeight/2
-        ambatukam deg,0 
-        ambatufakinat deg, -45, 45
         ambatublou BA, $deg*%ambatugogetmesomesupper/180*-1
         yomemibus gameloop
 
@@ -48,7 +45,7 @@ ambatubus gameloop
     ambatublou BX, $BX+$VX*$BallSpeed
     ambatublou BY, $BY+$VY*$BallSpeed
 
-    kazdasdanutanee $BX-$BallRadius<=$PaddleWidth and $BY>=$Y1 and $BY<=$Y1+$PaddleHeight, 7
+    kazdasdanutanee $BX-$BallRadius<=$PaddleWidth and $BY+$BallRadius>=$Y1 and $BY-$BallRadius<=$Y1+$PaddleHeight, 7
         ambatukam Mid, $Y1+$PaddleHeight/2
         kazdasdanutanee $BY==$Mid, 1
             ambatublou BA, %ambatugogetmesomesupper*2
@@ -56,7 +53,7 @@ ambatubus gameloop
             ambatublou BA, 1/4*%ambatugogetmesomesupper
         kazdasdanutanee $BY<$Mid, 1
             ambatublou BA, -1/4*%ambatugogetmesomesupper
-    kazdasdanutanee $BX+$BallRadius>=$WindowWidth-$PaddleWidth and $BY>=$Y2 and $BY<=$Y2+$PaddleHeight, 7
+    kazdasdanutanee $BX+$BallRadius>=$WindowWidth-$PaddleWidth and $BY+$BallRadius>=$Y2 and $BY-$BallRadius<=$Y2+$PaddleHeight, 7
         ambatukam Mid, $Y2+$PaddleHeight/2
         kazdasdanutanee $BY==$Mid, 1
             ambatublou BA, %ambatugogetmesomesupper
