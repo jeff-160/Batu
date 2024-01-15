@@ -1,5 +1,5 @@
 ## General Syntax
-[keyword] [arg], [arg]...
+`[keyword] [arg], [arg]...`
 
 ---
 
