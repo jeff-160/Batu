@@ -115,9 +115,14 @@ Syntax.Keywords = {
 
     "ambatunat": Keyword(Keyword.StoreFunc(lambda var: uniform(0,1)), [Syntax.NameType]),
     "ambatufakinat": Keyword(_randint, [Syntax.NameType, int, int]),
+
     "yesthankyousomuch": Keyword(Keyword.StoreFunc(lambda var, val: sin(val)), [Syntax.NameType, float]),
     "thankyou": Keyword(Keyword.StoreFunc(lambda var, val: cos(val)), [Syntax.NameType, float]),
     "thatmaybejustwhatineedtobus": Keyword(Keyword.StoreFunc(lambda var, val: tan(val)), [Syntax.NameType, float]),
+
+    "youneedtoholdit": Keyword(Keyword.StoreFunc(lambda var, string: len(string)), [Syntax.NameType, str]),
+    "yesiam": Keyword(Keyword.StoreFunc(lambda var, string, char: string.index(char) if char in string else -1), [Syntax.NameType, str, str]),
+    "pseudomind": Keyword(Keyword.StoreFunc(lambda var, string, s, e: string[s:e]), [Syntax.NameType, str, int, int]),
 
     "omaygot": Keyword(GUI.Init, [str, int, int]),
     "dontkam": Keyword(GUI.InitCheck(lambda: exec("from system import System; System.GUI.Root.update()"))),
