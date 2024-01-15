@@ -3,10 +3,8 @@
 </p>
 
 # Batu
-An interpreted language based on the quotes of Ambatukam.
-
-## Documentation
-Full documentation for the language can be located at [here](resources/documentation.md).
+An interpreted language based on the quotes of Ambatukam.  
+Full documentation for the language can be located [here](resources/documentation.md).
 
 ## Installation/Usage
 1. Download and extract this repository
