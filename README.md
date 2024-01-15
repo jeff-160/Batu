@@ -6,11 +6,15 @@
 An interpreted language based on the quotes of Ambatukam.  
 Full documentation for the language can be located [here](resources/documentation.md).
 
+---
+
 ## Installation/Usage
 1. Download and extract this repository
 2. To start running Batu code
     - `cd` to the root directory or ...
     - Add the absolute path of `batu.exe` in the root directory to your system environment variables
+
+---
 
 ## Configuration
 [`config.bat`](config.bat) utilies:
