@@ -6,13 +6,13 @@
 ## Variables and Datatypes
 
 ### Types
-- ambasing (boolean)
-- ambatukam (integer)
-- ambatublou (float)
-- ambatuexplode (string)
+- `ambasing` (boolean)
+- `ambatukam` (integer)
+- `ambatublou` (float)
+- `ambatuexplode` (string)
 
 ### Declaring variables
-- Usage: [type] [name], [value]
+- Usage: `[type] [name], [value]`
 - Args: 
     - `type`: Datatype of variable
     - `name`: Name of variable
@@ -59,13 +59,13 @@ Batu's logical operators are the same as Python's.
 
 ### yuwandisnut 
 - Outputs a string to the console
-- Usage: yuwandisnut [text]
+- Usage: `yuwandisnut [text]`
 - Args: 
     - `text`: String to output
 
 ### iwanit
 - Request input from user
-- Usage: iwanit [var], [text]
+- Usage: `iwanit [var], [text]`
 - Args:
     - `var`: Variable to store user input
     - `text`: Text to print to console when requesting input
@@ -77,13 +77,13 @@ Can be used to simulate loops
 
 ### ambatubus
 - Declares a label
-- Usage: ambatubus [name]
+- Usage: `ambatubus [name]`
 - Args: 
     - `name`: Name of label
 
 ### yomemibus
 - Jumps to line number of label
-- Usage: yomemibus [name]
+- Usage: `yomemibus [name]`
 - Args:
     - `name`: Name of label
 
@@ -92,7 +92,7 @@ Can be used to simulate loops
 
 ### kazdasdanutanee
 - Conditional block
-- Usage : kazdasdanutanee [condition], [span]
+- Usage : `kazdasdanutanee [condition], [span]`
 - Args:
     `condition`: Condition to evaluate
     `span`: Will skip ahead to end of span if condition is false
@@ -102,23 +102,23 @@ Can be used to simulate loops
 
 ### aauuhh
 - Delays the program for an arbitrary time interval
-- Usage: aauuhh [interval]
+- Usage: `aauuhh [interval]`
 - Args: 
     `interval`: Time in milliseconds to delay program by
 
 ### ewww
 - Exits the program
-- Usage: exit
+- Usage: `exit`
 
 ### ambatunat
 - Stores a random floating point number in a variable
-- Usage: ambatunat [var]
+- Usage: `ambatunat [var]`
 - Args:
     - `var`: Variable to store value into
 
 ### ambatufakinat
 - Stores a random integer within a range in a variable
-- Usage: ambatufakinat [var], [min], [max]
+- Usage: `ambatufakinat [var], [min], [max]`
 - Args:
     - `var`: Variable to store value into
     - `min`: Minimum value of random integer
@@ -126,35 +126,35 @@ Can be used to simulate loops
 
 ### yesthankyousomuch
 - Stores sine of a value in a variable
-- Usage: yesthankyousomuch [var], [value]
+- Usage: `yesthankyousomuch [var], [value]`
 - Args:
     `var`: Variable to store value into
     `value`: Value to apply sin to
 
 ### thankyou
 - Stores cosine of a value in a variable
-- Usage: thankyou [var], [value]
+- Usage: `thankyou [var], [value]`
 - Args:
     `var`: Variable to store value into
     `value`: Value to apply cos to
 
 ### thatmaybejustwhatineedtobus
 - Stores tangent of a value in a variable
-- Usage: thatmaybejustwhatineedtobus [var], [value]
+- Usage: `thatmaybejustwhatineedtobus [var], [value]`
 - Args:
     `var`: Variable to store value into
     `value`: Value to apply tan to
 
 ### youneedtoholdit
 - Stores length of a string into a variable
-- Usage: youneedtoholdit [var], [string]
+- Usage: `youneedtoholdit [var], [string]`
 - Args:
     - `var`: Variable to store value into
     - `string`: String to get length of
 
 ### yesiam
 - Stores index of a substring into a variable
-- Usage: yesiam [var], [string], [substr]
+- Usage: `yesiam [var], [string], [substr]`
 - Args:
     - `var`: Variable to store value into
     - `string`: String to check index from
@@ -162,7 +162,7 @@ Can be used to simulate loops
 
 ### pseudomind
 - Stores substring of a string into a variable
-- Usage: pseudomind [var], [string], [start], [end]
+- Usage: `pseudomind [var], [string], [start], [end]`
 - Args:
     - `var`: Variable to store value into
     - `string`: String to get substring from
@@ -175,7 +175,7 @@ Can be used to simulate loops
 
 ### omaygot
 - Creates a new gui window
-- Usage: omaygot [title], [width], [height]
+- Usage: `omaygot [title], [width], [height]`
 - Args
     - `title`: Title of window
     - `width`: Width of window
@@ -183,26 +183,26 @@ Can be used to simulate loops
 
 ### dontkam
 - Updates the gui window
-- Usage: dontkam
+- Usage: `dontkam`
 
 ### washthatass
 - Clears the entire gui window
-- Usage: washthatass
+- Usage: `washthatass`
 
 ### stretchdisass
 - Resizes the gui window
-- Usage: stretchdisass [width], [height]
+- Usage: `stretchdisass [width], [height]`
 - Args:
     - `width`: New width of gui window
     - `height`: New height of gui window
 
 ### yuboutodestroydisass
 - Closes the gui window
-- Usage: yuboutodestroydisass
+- Usage: `yuboutodestroydisass`
 
 ### haurder
 - Renders a rectangle on the gui window
-- Usage: haurder [color], [x], [y], [width], [height]
+- Usage: `haurder [color], [x], [y], [width], [height]`
 - Args:
     - `color`: Fill color of rectangle
     - `x`: X coordinate of rectangle
@@ -212,7 +212,7 @@ Can be used to simulate loops
 
 ### bus
 - Renders a circle on the gui window
-- Usage: bus [color], [x], [y], [radius]
+- Usage: `bus [color], [x], [y], [radius]`
 - Args:
     - `color`: Fill color of circle
     - `x`: X coordinate of circle
@@ -221,7 +221,7 @@ Can be used to simulate loops
 
 ### steven
 - Renders a sprite on the gui window
-- Usage: steven [path], [x], [y], [width], [height]
+- Usage: `steven [path], [x], [y], [width], [height]`
 - Args:
     - `path`: Relative file path of sprite image
     - `x`: X coordinate of sprite
@@ -231,7 +231,7 @@ Can be used to simulate loops
 
 ### vukvukvukvukvukvuk
 - Render string of text on the gui window
-- Usage: vukvukvukvukvukvuk [color], [text], [x], [y], [size]
+- Usage: `vukvukvukvukvukvuk [color], [text], [x], [y], [size]`
 - Args:
     - `color`: Font color of text
     - `text`: Text to render
