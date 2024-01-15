@@ -1,0 +1,100 @@
+ambatukam WindowWidth, 600
+ambatukam PaddleWidth, $WindowWidth/30
+ambatukam PaddleHeight, $PaddleWidth*4
+ambatukam PaddleSpeed, 10
+ambatukam BallRadius, $PaddleWidth/2.5
+ambatukam BallSpeed, 5
+ambatukam FontSize, 50
+
+ambatukam S1, 0
+ambatukam S2, 0
+ambatukam Y1, ($WindowWidth-$PaddleHeight)/2
+ambatukam Y2, $Y1
+
+ambatublou BX, $PaddleWidth+$BallRadius
+ambatublou BY, $WindowWidth/2
+ambatublou BA, 0
+ambatukam deg, 0
+ambatufakinat deg, -45, 45
+ambatublou BA, $deg*%ambatugogetmesomesupper/180*-1
+
+omaygot "Pong", $WindowWidth, $WindowWidth
+
+ambatubus gameloop
+    washthatass
+
+    kazdasdanutanee $BX+$BallRadius<=0, 7
+        ambatukam S2, $S2+1
+        ambatublou BX, $WindowWidth-$PaddleWidth-$BallRadius
+        ambatublou BY, $WindowWidth/2
+        ambatukam deg,0 
+        ambatufakinat deg, -45, 45
+        ambatublou BA, $deg*%ambatugogetmesomesupper/180*-1
+        yomemibus gameloop
+    
+    kazdasdanutanee $BX-$BallRadius>=$WindowWidth, 7
+        ambatukam S1, $S1+1
+        ambatublou BX, $PaddleWidth+$BallRadius
+        ambatublou BY, $WindowWidth/2
+        ambatukam deg,0 
+        ambatufakinat deg, -45, 45
+        ambatublou BA, $deg*%ambatugogetmesomesupper/180
+        yomemibus gameloop
+
+    ambatublou VX, 0
+    ambatublou VY, 0
+    thankyou VX, $BA
+    yesthankyousomuch VY, $BA
+
+    ambatublou BX, $BX+$VX*$BallSpeed
+    ambatublou BY, $BY+$VY*$BallSpeed
+
+    kazdasdanutanee $BX-$BallRadius<=$PaddleWidth and $BY>=$Y1 and $BY<=$Y1+$PaddleHeight, 7
+        ambatukam Mid, $Y1+$PaddleHeight/2
+        kazdasdanutanee $BY==$Mid, 1
+            ambatublou BA, %ambatugogetmesomesupper*2
+        kazdasdanutanee $BY>$Mid, 1
+            ambatublou BA, 1/4*%ambatugogetmesomesupper
+        kazdasdanutanee $BY<$Mid, 1
+            ambatublou BA, -1/4*%ambatugogetmesomesupper
+    kazdasdanutanee $BX+$BallRadius>=$WindowWidth-$PaddleWidth and $BY>=$Y2 and $BY<=$Y2+$PaddleHeight, 7
+        ambatukam Mid, $Y2+$PaddleHeight/2
+        kazdasdanutanee $BY==$Mid, 1
+            ambatublou BA, %ambatugogetmesomesupper
+        kazdasdanutanee $BY>$Mid, 1
+            ambatublou BA, -5/4*%ambatugogetmesomesupper
+        kazdasdanutanee $BY<$Mid, 1
+            ambatublou BA, 5/4*%ambatugogetmesomesupper
+
+    kazdasdanutanee $BX>0 and $BX<$WindowWidth and ($BY<=$BallSpeed or $BY>=$WindowWidth-$BallSpeed), 1
+        ambatublou BA, $BA*-1
+
+    kazdasdanutanee &KeyW, 1
+        ambatukam Y1, $Y1-$PaddleSpeed
+    kazdasdanutanee &KeyS, 1
+        ambatukam Y1, $Y1+$PaddleSpeed
+    kazdasdanutanee &KeyI, 1
+        ambatukam Y2, $Y2-$PaddleSpeed
+    kazdasdanutanee &KeyK, 1
+        ambatukam Y2, $Y2+$PaddleSpeed
+
+    bus "white", $BX, $BY, $BallRadius
+    haurder "white", 0, $Y1, $PaddleWidth, $PaddleHeight
+    haurder "white", $WindowWidth-$PaddleWidth, $Y2, $PaddleWidth, $PaddleHeight
+
+    vukvukvukvukvukvuk "white", $S1, ($WindowWidth/2-$FontSize)/2, $WindowWidth/2-$FontSize, $FontSize
+    vukvukvukvukvukvuk "white", $S2, $WindowWidth/2+($WindowWidth/2-$FontSize)/2, $WindowWidth/2-$FontSize, $FontSize
+
+    ambatukam w, 15
+    ambatukam h, 50
+    ambatukam s, 20
+    ambatukam i, 0
+    ambatubus drawline
+    haurder "white", ($WindowWidth-$w)/2, $i*$h+$i*$s, $w, $h
+    ambatukam i, $i+1
+    kazdasdanutanee $i<$WindowWidth/$h, 1
+        yomemibus drawline
+    
+    dontkam
+    aauuhh 10
+yomemibus gameloop
