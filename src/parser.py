@@ -7,7 +7,7 @@ class Parser:
             return eval(Parser.ReplaceVar(expr))
         except TypeError:
             Utils.Error("type", "incompatible types in expression")
-        except:
+        except Exception:
             Utils.Error("syntax", f'invalid expression "{expr}"')
 
     @staticmethod
@@ -37,10 +37,8 @@ class Parser:
                     if name not in col:
                         Utils.Errors.NoVar(["built-in constant", "variable"][expr[i]==Syntax.Variable], name)
                     value = col[name].Value
-                    extra = int(str(value)[0] in Syntax.Quotes)
-                    value, inString = [f'"""{value}"""', True] if col[name].Type==Syntax.Types["str"] else [value, inString]
+                    value = f'"""{value}"""' if col[name].Type==Syntax.Types["str"] else value
                 
                 expr = f"{expr[:i]}{value}{expr[index:]}"
-                i-=len(name)-len(str(value))-extra
             i-=1
         return expr
