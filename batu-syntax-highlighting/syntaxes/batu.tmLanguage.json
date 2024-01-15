@@ -72,7 +72,7 @@
             "patterns": [
                 {
                     "name": "support.function",
-                    "match": "\\b(yuwandisnut|iwanit||aauuhh|ewww|ambatunat|ambatufakinat|yesthankyousomuch|thankyou|thatmaybejustwhatineedtobus|youneedtoholdit|yesiam|pseudomind|omaygot|dontkam|washthatass|stretchdisass|yuboutodestroydisass|haurder|bus|steven|vukvukvukvukvukvuk)\\b"
+                    "match": "\\b(yuwandisnut|iwanit|aauuhh|ewww|ambatunat|ambatufakinat|yesthankyousomuch|thankyou|thatmaybejustwhatineedtobus|youneedtoholdit|yesiam|pseudomind|omaygot|dontkam|washthatass|stretchdisass|yuboutodestroydisass|haurder|bus|steven|vukvukvukvukvukvuk)\\b"
                 }
             ]
         }
