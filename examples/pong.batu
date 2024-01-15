@@ -25,19 +25,19 @@ ambatubus gameloop
     kazdasdanutanee $BX+$BallRadius<=0, 7
         ambatukam S2, $S2+1
         ambatublou BX, $WindowWidth-$PaddleWidth-$BallRadius
-        ambatublou BY, $WindowWidth/2
+        ambatublou BY, $Y2+$PaddleHeight/2
         ambatukam deg,0 
         ambatufakinat deg, -45, 45
-        ambatublou BA, $deg*%ambatugogetmesomesupper/180*-1
+        ambatublou BA, $deg*%ambatugogetmesomesupper/180
         yomemibus gameloop
     
     kazdasdanutanee $BX-$BallRadius>=$WindowWidth, 7
         ambatukam S1, $S1+1
         ambatublou BX, $PaddleWidth+$BallRadius
-        ambatublou BY, $WindowWidth/2
+        ambatublou BY, $Y1+$PaddleHeight/2
         ambatukam deg,0 
         ambatufakinat deg, -45, 45
-        ambatublou BA, $deg*%ambatugogetmesomesupper/180
+        ambatublou BA, $deg*%ambatugogetmesomesupper/180*-1
         yomemibus gameloop
 
     ambatublou VX, 0
@@ -68,13 +68,13 @@ ambatubus gameloop
     kazdasdanutanee $BX>0 and $BX<$WindowWidth and ($BY<=$BallSpeed or $BY>=$WindowWidth-$BallSpeed), 1
         ambatublou BA, $BA*-1
 
-    kazdasdanutanee &KeyW, 1
+    kazdasdanutanee &KeyW and $Y1, 1
         ambatukam Y1, $Y1-$PaddleSpeed
-    kazdasdanutanee &KeyS, 1
+    kazdasdanutanee &KeyS and $Y1<$WindowWidth-$PaddleHeight, 1
         ambatukam Y1, $Y1+$PaddleSpeed
-    kazdasdanutanee &KeyI, 1
+    kazdasdanutanee &KeyI and $Y2, 1
         ambatukam Y2, $Y2-$PaddleSpeed
-    kazdasdanutanee &KeyK, 1
+    kazdasdanutanee &KeyK and $WindowWidth-$PaddleHeight, 1
         ambatukam Y2, $Y2+$PaddleSpeed
 
     bus "white", $BX, $BY, $BallRadius
