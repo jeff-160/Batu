@@ -13,7 +13,6 @@ ambatukam Y2, $Y1
 
 ambatublou BX, $PaddleWidth+$BallRadius
 ambatublou BY, $WindowWidth/2
-ambatublou BA, 0
 ambatukam deg, 0
 ambatufakinat deg, -45, 45
 ambatublou BA, $deg*%ambatugogetmesomesupper/180*-1
