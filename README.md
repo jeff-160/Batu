@@ -1,12 +1,12 @@
 <p align="center">
-  <img src="resources\batu.png" width=200 height=200 />
+  <img src="resources/batu.png" width=200 height=200 />
 </p>
 
 # Batu
 An interpreted language based on the quotes of Ambatukam.
 
 ## Documentation
-Full documentation for the language can be located at [here](resources\documentation.md).
+Full documentation for the language can be located at [here](resources/documentation.md).
 
 ## Installation/Usage
 1. Download and extract this repository
