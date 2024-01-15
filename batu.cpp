@@ -13,18 +13,28 @@ int Error(char* message){
 }
 
 int main(int argc, char* argv[]){
-    if (argc!=2)
-        return Error("Invalid number of arguments");
+    switch (argc){
+        case 1:
+            puts("Usage: batu [.batu sourcefile]");
+        break;
         
-    auto path = std::string(argv[1]);
-    if (!std::filesystem::exists(path))
-        return Error("File does not exist");
+        case 2:
+            {
+                auto path = std::string(argv[1]);
+                if (!std::filesystem::exists(path))
+                    return Error("File does not exist");
 
-    std::string ext = ".batu";
-    if (path.find(ext)!=path.length()-ext.length())
-        return Error("File format not supported");
+                std::string ext = ".batu";
+                if (path.find(ext)!=path.length()-ext.length())
+                    return Error("File format not supported");
 
-    char buffer[MAX_PATH];
-    GetModuleFileName(NULL, buffer, MAX_PATH);
-    system((std::filesystem::path(buffer).parent_path().string()+"\\src\\main.exe "+path).c_str());
+                char buffer[MAX_PATH];
+                GetModuleFileName(NULL, buffer, MAX_PATH);
+                system((std::filesystem::path(buffer).parent_path().string()+"\\src\\main.exe "+path).c_str());
+            }
+        break;
+
+        default:
+            return Error("Invalid number of arguments");
+    }   
 }
