@@ -40,7 +40,12 @@ class Label:
     def __init__(self, line, isglobal=True):
         self.LineNumber = line
         self.Global = isglobal
-    
+
+def _delete(var):
+    from system import System
+    if not var in System.Variables:
+        Utils.Errors.NoVar("variable", var)
+    del System.Variables[var]
 
 def _label(name):
     Utils.CheckName(name, "label")
@@ -103,6 +108,7 @@ Syntax.Keywords = {
         i[0]: Keyword(Variable.Declare(i[0], i[1]), [Syntax.NameType, Syntax.ValueType])
             for i in [(Syntax.Types[k], k) for k in Syntax.Types]
     },
+    "amblokenu": Keyword(_delete, [Syntax.NameType]),
 
     "ambatubus": Keyword(_label, [Syntax.NameType]),
     "yomemibus": Keyword(_goto, [Syntax.NameType]),

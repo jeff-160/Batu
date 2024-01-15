@@ -27,7 +27,9 @@ class GUI:
 
     Events = {
         **{f"Key{i}": False for i in [c for c in string.ascii_uppercase]+["SPACE", "ENTER"]},
-        "POINTER": False
+        "POINTER": False,
+        "POINTERX": -1,
+        "POINTERY": -1
     }
 
     @staticmethod
@@ -71,6 +73,7 @@ class GUI:
         Root.bind("<KeyRelease>", lambda e: GUI.UpdateKey(e, 0))
         Root.bind("<ButtonPress-1>", lambda _: exec("GUI.Events['POINTER']=True"))
         Root.bind("<ButtonRelease-1>", lambda _: exec("GUI.Events['POINTER']=False"))
+        Root.bind("<Motion>", lambda e: exec("GUI.Events['POINTERX'], GUI.Events['POINTERY'] = e.x, e.y"))
 
         Canvas = tk.Canvas(Root, width=width, height=height, bg=GUI.Colors["black"], borderwidth=0, highlightthickness=0)
         Canvas.pack()
