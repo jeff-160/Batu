@@ -74,7 +74,7 @@ ambatubus gameloop
         ambatukam Y1, $Y1+$PaddleSpeed
     kazdasdanutanee &KeyI and $Y2, 1
         ambatukam Y2, $Y2-$PaddleSpeed
-    kazdasdanutanee &KeyK and $WindowWidth-$PaddleHeight, 1
+    kazdasdanutanee &KeyK and $Y2<$WindowWidth-$PaddleHeight, 1
         ambatukam Y2, $Y2+$PaddleSpeed
 
     bus "white", $BX, $BY, $BallRadius
