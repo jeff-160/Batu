@@ -66,7 +66,7 @@
         },
         {
             "name": "keyword.control.batu",
-            "match": "\\b(kazdasdanutanee|ambatubus|yomemibus)\\b"
+            "match": "\\b(kazdasdanutanee|ambatubus|yomemibus|amblokenu)\\b"
         },
         {
             "patterns": [
