@@ -21,7 +21,7 @@ class Parser:
                 inString = not inString
 
             if expr[i] in [Syntax.Variable, Syntax.BuiltIn, Syntax.GUI] and not inString:
-                symbol = Utils.FindChar(expr[i:], f"[{Syntax.Symbols}]")
+                symbol = Utils.FindChar(expr[i:], f"[{Syntax.Symbols}, ' ']")
                 index = symbol+i if symbol!=None else len(expr)
 
                 name = expr[i+1:index].strip()
