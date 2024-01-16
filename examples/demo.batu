@@ -1,0 +1,10 @@
+# output nigger 10 times
+
+ambatukam i, 0
+ambatubus loop
+
+yuwandisnut "nigger\n"
+ambatukam i, $i+1
+
+kazdasdanutanee $i<10, 1
+    yomemibus loop
