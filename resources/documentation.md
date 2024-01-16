@@ -18,18 +18,27 @@
     - `name`: Name of variable
     - `value`: Value to store in variable
 
+## amblokenu
+- Deletes a variable
+- Usage: `amblokenu [var]`
+- Args:
+    - `var`: Variable to delete
+
 ---
 
 ## Built-in Constants
 
 ### ambatugogetmesomesupper
 - Stores the value of pi
+- Usage: `%ambatugogetmesomesupper`
 
 ### itssofuckinghuge
 - Stores the value of phi (golden ratio)
+- Usage: `%itssofuckinghuge`
 
 ### ugheeeee
 - Stores the value of e (euler's constant)
+- Usage: `%ugheeeee`
 
 ---
 
@@ -37,16 +46,20 @@
 
 ### Variables
 Prefixed by `$` identifier
+- Examples:
+    - `&variable`
 
 ### Built-in Constants
 Prefixed by `%` identifier
+- Examples:
+    - `%ugheeeee`
 
 ### Keys and Mouse (GUI)
 Prefixed by `&` identifier
 - Examples:
-    - &KeyA
-    - &KeySPACE
-    - &POINTER
+    - `&KeyA`
+    - `&KeySPACE`
+    - `&POINTER`
 
 ---
 
@@ -174,7 +187,7 @@ Can be used to simulate loops
 ## GUI
 
 ### omaygot
-- Creates a new gui window
+- Creates a new GUI window
 - Usage: `omaygot [title], [width], [height]`
 - Args
     - `title`: Title of window
@@ -182,26 +195,26 @@ Can be used to simulate loops
     - `height`: Height of window
 
 ### dontkam
-- Updates the gui window
+- Updates the GUI window
 - Usage: `dontkam`
 
 ### washthatass
-- Clears the entire gui window
+- Clears the entire GUI window
 - Usage: `washthatass`
 
 ### stretchdisass
-- Resizes the gui window
+- Resizes the GUI window
 - Usage: `stretchdisass [width], [height]`
 - Args:
-    - `width`: New width of gui window
-    - `height`: New height of gui window
+    - `width`: New width of GUI window
+    - `height`: New height of GUI window
 
 ### yuboutodestroydisass
-- Closes the gui window
+- Closes the GUI window
 - Usage: `yuboutodestroydisass`
 
 ### haurder
-- Renders a rectangle on the gui window
+- Renders a rectangle on the GUI window
 - Usage: `haurder [color], [x], [y], [width], [height]`
 - Args:
     - `color`: Fill color of rectangle
@@ -211,7 +224,7 @@ Can be used to simulate loops
     - `height`: Height of rectangle
 
 ### bus
-- Renders a circle on the gui window
+- Renders a circle on the GUI window
 - Usage: `bus [color], [x], [y], [radius]`
 - Args:
     - `color`: Fill color of circle
@@ -220,7 +233,7 @@ Can be used to simulate loops
     - `radius`: Radius of circle
 
 ### steven
-- Renders a sprite on the gui window
+- Renders a sprite on the GUI window
 - Usage: `steven [path], [x], [y], [width], [height]`
 - Args:
     - `path`: Relative file path of sprite image
@@ -230,7 +243,7 @@ Can be used to simulate loops
     - `height`: Height of sprite
 
 ### vukvukvukvukvukvuk
-- Render string of text on the gui window
+- Render string of text on the GUI window
 - Usage: `vukvukvukvukvukvuk [color], [text], [x], [y], [size]`
 - Args:
     - `color`: Font color of text
@@ -238,3 +251,14 @@ Can be used to simulate loops
     - `x`: X coordinate of text
     - `y`: Y coordinateof text
     - `size`: Font size of text
+
+### Event Variables
+- Keys
+    - State of key press
+    - Usage: `&Key[A-Z | 0-9 | SPACE | ENTER]`
+- Pointer
+    - State of pointer press
+    - Usage: `&POINTER`
+- Pointer Coordinates
+    - Current coordinates of pointer in GUI window
+    - Usage: `&POINTER[X | Y]`
