@@ -253,12 +253,9 @@ Can be used to simulate loops
     - `size`: Font size of text
 
 ### Event Variables
-- Keys
-    - State of key press
+- Keypress
     - Usage: `&Key[A-Z | 0-9 | SPACE | ENTER]`
-- Pointer
-    - State of pointer press
+- Pointerpress
     - Usage: `&POINTER`
 - Pointer Coordinates
-    - Current coordinates of pointer in GUI window
     - Usage: `&POINTER[X | Y]`
