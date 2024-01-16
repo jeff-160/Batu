@@ -18,7 +18,7 @@
     - `name`: Name of variable
     - `value`: Value to store in variable
 
-## amblokenu
+### amblokenu
 - Deletes a variable
 - Usage: `amblokenu [var]`
 - Args:
