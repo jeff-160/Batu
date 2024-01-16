@@ -5,6 +5,7 @@ ambatukam PaddleSpeed, 10
 ambatukam BallRadius, $PaddleWidth/2.5
 ambatukam BallSpeed, 5
 ambatukam FontSize, 50
+ambatukam Cooldown, 1000
 
 ambatukam S1, 0
 ambatukam S2, 0
@@ -24,55 +25,48 @@ ambatubus gameloop
 
     ambatukam deg,0 
     ambatufakinat deg, -45, 45
-    kazdasdanutanee $BX+$BallRadius<=0, 5
+    kazdasdanutanee $BX+$BallRadius<=0, 6
         ambatukam S2, $S2+1
         ambatublou BX, $WindowWidth-$PaddleWidth-$BallRadius
         ambatublou BY, $Y2+$PaddleHeight/2
         ambatublou BA, $deg*%ambatugogetmesomesupper/180
+        aauuhh $Cooldown
         yomemibus gameloop
-    kazdasdanutanee $BX-$BallRadius>=$WindowWidth, 5
+    kazdasdanutanee $BX-$BallRadius>=$WindowWidth, 6
         ambatukam S1, $S1+1
         ambatublou BX, $PaddleWidth+$BallRadius
         ambatublou BY, $Y1+$PaddleHeight/2
         ambatublou BA, $deg*%ambatugogetmesomesupper/180*-1
+        aauuhh $Cooldown
         yomemibus gameloop
 
     ambatublou VX, 0
     ambatublou VY, 0
     thankyou VX, $BA
     yesthankyousomuch VY, $BA
-
     ambatublou BX, $BX+$VX*$BallSpeed
     ambatublou BY, $BY+$VY*$BallSpeed
 
-    kazdasdanutanee $BX-$BallRadius<=$PaddleWidth and $BY+$BallRadius>=$Y1 and $BY-$BallRadius<=$Y1+$PaddleHeight, 7
+    kazdasdanutanee $BX-$BallRadius<=$PaddleWidth and $BY+$BallRadius>=$Y1 and $BY-$BallRadius<=$Y1+$PaddleHeight, 5
         ambatukam Mid, $Y1+$PaddleHeight/2
         kazdasdanutanee $BY==$Mid, 1
             ambatublou BA, %ambatugogetmesomesupper*2
-        kazdasdanutanee $BY>$Mid, 1
-            ambatublou BA, 1/4*%ambatugogetmesomesupper
-        kazdasdanutanee $BY<$Mid, 1
-            ambatublou BA, -1/4*%ambatugogetmesomesupper
-    kazdasdanutanee $BX+$BallRadius>=$WindowWidth-$PaddleWidth and $BY+$BallRadius>=$Y2 and $BY-$BallRadius<=$Y2+$PaddleHeight, 7
+        kazdasdanutanee $BY!=$Mid, 1
+            ambatublou BA, (($BY>$Mid)*2-1)*1/4*%ambatugogetmesomesupper
+    kazdasdanutanee $BX+$BallRadius>=$WindowWidth-$PaddleWidth and $BY+$BallRadius>=$Y2 and $BY-$BallRadius<=$Y2+$PaddleHeight, 5
         ambatukam Mid, $Y2+$PaddleHeight/2
         kazdasdanutanee $BY==$Mid, 1
             ambatublou BA, %ambatugogetmesomesupper
-        kazdasdanutanee $BY>$Mid, 1
-            ambatublou BA, -5/4*%ambatugogetmesomesupper
-        kazdasdanutanee $BY<$Mid, 1
-            ambatublou BA, 5/4*%ambatugogetmesomesupper
+        kazdasdanutanee $BY!=$Mid, 1
+            ambatublou BA, (($BY>$Mid)*2-1)*-5/4*%ambatugogetmesomesupper
 
     kazdasdanutanee $BX>0 and $BX<$WindowWidth and ($BY<=$BallSpeed or $BY>=$WindowWidth-$BallSpeed), 1
         ambatublou BA, $BA*-1
 
-    kazdasdanutanee &KeyW and $Y1, 1
-        ambatukam Y1, $Y1-$PaddleSpeed
-    kazdasdanutanee &KeyS and $Y1<$WindowWidth-$PaddleHeight, 1
-        ambatukam Y1, $Y1+$PaddleSpeed
-    kazdasdanutanee &KeyI and $Y2, 1
-        ambatukam Y2, $Y2-$PaddleSpeed
-    kazdasdanutanee &KeyK and $Y2<$WindowWidth-$PaddleHeight, 1
-        ambatukam Y2, $Y2+$PaddleSpeed
+    kazdasdanutanee (&KeyW and $Y1) or (&KeyS and $Y1+$PaddleHeight<$WindowWidth), 1
+        ambatukam Y1, $Y1+(&KeyS*2-1)*$PaddleSpeed
+    kazdasdanutanee (&KeyI and $Y2) or (&KeyK and $Y2+$PaddleHeight<$WindowWidth), 1
+        ambatukam Y2, $Y2+(&KeyK*2-1)*$PaddleSpeed
 
     bus "white", $BX, $BY, $BallRadius
     haurder "white", 0, $Y1, $PaddleWidth, $PaddleHeight
