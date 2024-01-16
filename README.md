@@ -22,3 +22,9 @@ Visit the language's [itch.io page](https://wap-industries-official.itch.io/batu
 - Adds the Batu interpreter path to the system environment variables
 - Associates `.batu` files with the Batu icon
 - Custom VSCode syntax highlighting for Batu
+
+--- 
+
+## Example Code
+[Demo program](examples/demo.batu)  
+[Pong implementation](examples/pong.batu)
