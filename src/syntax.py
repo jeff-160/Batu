@@ -131,7 +131,7 @@ Syntax.Keywords = {
 
     "omaygot": Keyword(GUI.Init, [str, int, int]),
     "dontkam": Keyword(GUI.InitCheck(lambda: exec("from system import System; System.GUI.Root.update()"))),
-    "washthatass": Keyword(GUI.InitCheck(lambda: exec('from system import System; System.GUI.Canvas.delete("all")'))),
+    "washthatass": Keyword(GUI.InitCheck(lambda: exec('from system import System; GUI.ClearSprites(); System.GUI.Canvas.delete("all")'))),
     "stretchdisass": Keyword(GUI.InitCheck(lambda width, height: exec(f"from system import System; System.GUI.Root.geometry('{width}x{height}')")), [int, int]),
     "yuboutodestroydisass": Keyword(GUI.Destroy),
     "haurder": Keyword(GUI.Rect, [str, float, float, float, float]),

@@ -79,6 +79,10 @@ class GUI:
         Canvas.pack()
 
         System.GUI.Root, System.GUI.Canvas = Root, Canvas
+    
+    @staticmethod
+    def ClearSprites():
+        GUI.Sprites = [i.__del__() for i in GUI.Sprites].clear() or []
 
     @staticmethod
     @InitCheck
@@ -86,7 +90,7 @@ class GUI:
         from system import System
         System.GUI.Root.destroy()
         System.GUI.Root = System.GUI.Canvas = None
-        GUI.Sprites = []
+        GUI.ClearSprites()
 
     @staticmethod
     @InitCheck
