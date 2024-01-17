@@ -3,9 +3,9 @@ from parser import *
 class Lexer:
     @staticmethod
     def Lex(line):
-        index = Utils.FindChar(line, " ")
+        index, comment = Utils.FindChar(line, " "), Utils.FindChar(line, "#")
         function = line[:index]
-        return (function, Lexer.GetArgs(line[index+1:], []) if function!=line.strip() else [])
+        return (function, Lexer.GetArgs(line[index+1:comment] if comment!=None else line[index+1:], []) if function!=line.strip() else [])
             
     @staticmethod
     def GetArgs(line, args):
