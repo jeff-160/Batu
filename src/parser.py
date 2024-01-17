@@ -37,7 +37,7 @@ class Parser:
                     if name not in col:
                         Utils.Errors.NoVar(["built-in constant", "variable"][expr[i]==Syntax.Variable], name)
                     value = col[name].Value
-                    value = f'"""{value} """' if col[name].Type==Syntax.Types["str"] else value
+                    value = f'"{value}"'.replace("\"", "\\\"") if col[name].Type==Syntax.Types["str"] else value
                 
                 expr = f"{expr[:i]}{value}{expr[index:]}"
             i-=1
