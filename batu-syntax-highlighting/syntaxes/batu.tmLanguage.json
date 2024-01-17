@@ -38,17 +38,6 @@
             ]
         },
         {
-            "name": "string.single",
-            "begin": "'",
-            "end": "'",
-            "patterns": [
-                {
-                    "name": "constant.character.escape.batu",
-                    "match": "\\\\."
-                }
-            ]
-        },
-        {
             "patterns": [
                 {
                     "name": "storage.type",
