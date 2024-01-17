@@ -14,11 +14,11 @@ class Utils:
     def FindChar(line, char):
         from syntax import Syntax
         
-        inString = False
+        Quote = None
         for i in range(len(line)):
-            if line[i]==Syntax.Quote and line[i-1]!="\\": 
-                inString = not inString
-            if re.findall(char, line[i]) and not inString:
+            if line[i] in Syntax.Quotes and line[i-1]!="\\" and (line[i]==Quote if Quote else 1):
+                Quote = None if Quote else line[i]
+            if re.findall(char, line[i]) and not Quote:
                 return i
     
     @staticmethod
