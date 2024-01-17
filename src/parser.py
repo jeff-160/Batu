@@ -41,5 +41,4 @@ class Parser:
                 
                 expr = f"{expr[:i]}{value}{expr[index:]}"
             i-=1
-        print(expr)
         return expr
