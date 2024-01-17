@@ -3,6 +3,13 @@
 
 ---
 
+# Comments
+- Batu uses `#` for comments
+- Examples:
+    - `# this is a comment`
+
+---
+
 ## Variables and Datatypes
 
 ### Types
