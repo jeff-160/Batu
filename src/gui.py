@@ -26,7 +26,7 @@ class GUI:
     }
 
     Events = {
-        **{f"Key{i}": False for i in [c for c in string.ascii_uppercase]+["SPACE", "ENTER"]},
+        **{f"Key{i}": False for i in [c for c in string.ascii_uppercase+string.digits]+["SPACE", "ENTER"]},
         "POINTER": False,
         "POINTERX": -1,
         "POINTERY": -1

@@ -16,7 +16,7 @@ class Utils:
         
         inString = False
         for i in range(len(line)):
-            if line[i] in Syntax.Quotes: 
+            if line[i]==Syntax.Quote and line[i-1]!="\\": 
                 inString = not inString
             if re.findall(char, line[i]) and not inString:
                 return i

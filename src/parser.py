@@ -17,7 +17,7 @@ class Parser:
 
         i = len(expr)-1
         while i>=0:
-            if expr[i] in Syntax.Quotes:
+            if expr[i]==Syntax.Quote and expr[i-1]!="\\":
                 inString = not inString
 
             if expr[i] in [Syntax.Variable, Syntax.BuiltIn, Syntax.GUI] and not inString:
@@ -41,4 +41,5 @@ class Parser:
                 
                 expr = f"{expr[:i]}{value}{expr[index:]}"
             i-=1
+        print(expr)
         return expr
