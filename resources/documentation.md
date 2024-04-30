@@ -128,7 +128,7 @@ Can be used to simulate loops
 
 ### ewww
 - Exits the program
-- Usage: `exit`
+- Usage: `ewww`
 
 ### ambatunat
 - Stores a random floating point number in a variable
@@ -148,22 +148,22 @@ Can be used to simulate loops
 - Stores sine of a value in a variable
 - Usage: `yesthankyousomuch [var], [value]`
 - Args:
-    `var`: Variable to store value into
-    `value`: Value to apply sin to
+    - `var`: Variable to store value into
+    - `value`: Value to apply sin to
 
 ### thankyou
 - Stores cosine of a value in a variable
 - Usage: `thankyou [var], [value]`
 - Args:
-    `var`: Variable to store value into
-    `value`: Value to apply cos to
+    - `var`: Variable to store value into
+    - `value`: Value to apply cos to
 
 ### thatmaybejustwhatineedtobus
 - Stores tangent of a value in a variable
 - Usage: `thatmaybejustwhatineedtobus [var], [value]`
 - Args:
-    `var`: Variable to store value into
-    `value`: Value to apply tan to
+    - `var`: Variable to store value into
+    - `value`: Value to apply tan to
 
 ### youneedtoholdit
 - Stores length of a string into a variable
