@@ -114,8 +114,8 @@ Can be used to simulate loops
 - Conditional block
 - Usage : `kazdasdanutanee [condition], [span]`
 - Args:
-    `condition`: Condition to evaluate
-    `span`: Will skip ahead to end of span if condition is false
+    - `condition`: Condition to evaluate
+    - `span`: Will skip ahead to end of span if condition is false
 
 ---
 ## Additional Functions
