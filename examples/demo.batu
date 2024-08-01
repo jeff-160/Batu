@@ -1,9 +1,9 @@
-# output nigger 10 times
+# output hello world 10 times
 
 ambatukam i, 0
 ambatubus loop
 
-yuwandisnut "nigger\n"
+yuwandisnut "hello world\n"
 ambatukam i, $i+1
 
 kazdasdanutanee $i<10, 1
