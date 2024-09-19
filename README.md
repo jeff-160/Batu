@@ -4,8 +4,7 @@
 
 # Batu
 An interpreted language based on the quotes of Ambatukam.  
-Full documentation for the language can be located [here](resources/documentation.md).  
-Visit the language's [itch.io page](https://wap-industries-official.itch.io/batu) for the official release without the source code.
+Full documentation for the language can be located [here](resources/documentation.md).
 
 ---
 
